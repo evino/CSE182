@@ -1,3 +1,7 @@
+DROP SCHEMA Lab1 CASCADE;
+CREATE SCHEMA Lab1;
+
+
 CREATE TABLE RacingPersons (
     personID INT,
     personName VARCHAR(30),
