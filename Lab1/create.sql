@@ -17,7 +17,7 @@ CREATE TABLE Stables (
     address VARCHAR(50),
     stableOwnerID INT,
     PRIMARY KEY (stableID),
-    FOREIGN KEY (stableOwnerID) REFERENCES RacingPersons
+    FOREIGN KEY (stableOwnerID) REFERENCES RacingPersons(personID)
 );
 
 CREATE TABLE Horses (
@@ -29,8 +29,8 @@ CREATE TABLE Horses (
     trainerID INT,
     horseOwnerID INT,
     PRIMARY KEY (horseID),
-    FOREIGN KEY (stableID) REFERENCES Stables,
-    FOREIGN KEY (trainerID, horseOwnerID) REFERENCES RacingPersons
+    FOREIGN KEY (stableID) REFERENCES Stables(stableID),
+    FOREIGN KEY (trainerID, horseOwnerID) REFERENCES RacingPersons(personID)
 );
 
 CREATE TABLE Racetracks (
@@ -48,7 +48,7 @@ CREATE TABLE Races (
     raceStartTime TIME,
     winningPrize NUMERIC(5,2),
     PRIMARY KEY (racetrackID, raceDate, raceNum),
-    FOREIGN KEY (racetrackID) REFERENCES Racetracks
+    FOREIGN KEY (racetrackID) REFERENCES Racetracks(racetrackID)
 );
 
 CREATE TABLE HorseRaceResults (
@@ -60,7 +60,7 @@ CREATE TABLE HorseRaceResults (
     finishPosition INT,
     raceFinishTime TIME,
     PRIMARY KEY (racetrackID, raceDate, raceNum, horseID),
-    FOREIGN KEY (racetrackID, raceDate, raceNum) REFERENCES Races,
-    FOREIGN KEY (horseID) REFERENCES Horses,
-    FOREIGN KEY (jockeyID) REFERENCES RacingPersons
+    FOREIGN KEY (racetrackID, raceDate, raceNum) REFERENCES Races(racetrackID, raceDate, raceNum),
+    FOREIGN KEY (horseID) REFERENCES Horses(horseID),
+    FOREIGN KEY (jockeyID) REFERENCES RacingPersons(personID)
 );
