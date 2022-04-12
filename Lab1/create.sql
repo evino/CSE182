@@ -38,7 +38,7 @@ CREATE TABLE Racetracks (
     racetrackID INT,
     trackName VARCHAR(30),
     address VARCHAR(50),
-    trackDistance NUMERIC(2,1),
+    trackDistance NUMERIC(3,1),
     PRIMARY KEY (racetrackID)
 );
 
@@ -47,7 +47,7 @@ CREATE TABLE Races (
     raceDate DATE,
     raceNum INT,
     raceStartTime TIME,
-    winningPrize NUMERIC(5,2),
+    winningPrize NUMERIC(7,2),
     PRIMARY KEY (racetrackID, raceDate, raceNum),
     FOREIGN KEY (racetrackID) REFERENCES Racetracks(racetrackID)
 );
