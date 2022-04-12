@@ -30,7 +30,8 @@ CREATE TABLE Horses (
     horseOwnerID INT,
     PRIMARY KEY (horseID),
     FOREIGN KEY (stableID) REFERENCES Stables(stableID),
-    FOREIGN KEY (trainerID, horseOwnerID) REFERENCES RacingPersons(personID)
+    FOREIGN KEY (trainerID) REFERENCES RacingPersons(personID),
+    FOREIGN KEY (horseOwnerID) REFERENCES RacingPersons(personID)
 );
 
 CREATE TABLE Racetracks (
