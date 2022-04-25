@@ -80,7 +80,7 @@ CREATE TABLE HorseRaceResults (
     finishPosition INTEGER,
     raceFinishTime TIME,
     PRIMARY KEY (racetrackID, raceDate, raceNum, horseID),
-    UNIQUE (finishPosition),
+    UNIQUE (raceTrackID, raceDate, raceNum, finishPosition),
     FOREIGN KEY (racetrackID, raceDate, raceNum) REFERENCES Races,
     FOREIGN KEY (horseID) REFERENCES Horses,
     FOREIGN KEY (jockeyID) REFERENCES RacingPersons(personID)
