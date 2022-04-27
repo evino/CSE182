@@ -1,9 +1,11 @@
 
 SELECT Distinct hrr.horseID AS theHorseID, h.horseName AS theHorseName,
-rp.personName AS theOwnerName, s.stableName AS theStableName,
-rp.personName AS theStableOwnerName
-FROM HorseRaceResults hrr, Horses h, RacingPersons rp, Stables s
-WHERE hrr.finishPositions = 1
+rp1.personName AS theOwnerName, s.stableName AS theStableName,
+rp2.personName AS theStableOwnerName
+FROM HorseRaceResults hrr, Horses h, RacingPersons rp1, RacingPersons rp2, Stables s
+WHERE
+hrr.finishPosition = 1
 AND hrr.horseID = h.horseID
-AND rp.personID = h.horseOwnerID
-AND s.stableOwnerID = h.horseOwnerID
+AND rp1.personID = h.horseOwnerID
+AND s.stableID = h.stableID
+AND s.stableOwnerID = rp2.personID
