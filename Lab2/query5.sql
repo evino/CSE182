@@ -1,3 +1,5 @@
+-- Evin Odisho
+-- edodisho
 
 SELECT Distinct hrr.horseID AS theHorseID, h.horseName AS theHorseName,
 rp1.personName AS theOwnerName, s.stableName AS theStableName,
