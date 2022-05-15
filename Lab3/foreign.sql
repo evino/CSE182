@@ -1,0 +1,23 @@
+-- Evin Odisho
+-- edodisho
+-- foreign.sql
+
+ALTER TABLE Horses
+ADD CONSTRAINT fk_horses_stable
+FOREIGN KEY (stableID) REFERENCES Stables(stableID)
+ON DELETE RESTRICT
+ON UPDATE CASCADE;
+
+
+ALTER TABLE Horses
+ADD CONSTRAINT fk_horses_trainer
+FOREIGN KEY (trainerID) REFERENCES RacingPersons(personID)
+ON DELETE SET NULL
+ON UPDATE CASCADE;
+
+
+ALTER TABLE Horses
+ADD CONSTRAINT fk_horses_horseOwnerID
+FOREIGN KEY (horseOwnerID) REFERENCES RacingPersons(personID)
+ON DELETE CASCADE
+ON UPDATE RESTRICT;
