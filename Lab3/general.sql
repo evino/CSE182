@@ -2,14 +2,14 @@
 -- edodisho
 -- general.sql
 
-ALTER TABLE RaceTracks
+ALTER TABLE Racetracks
 ADD CONSTRAINT positiveTrackDistance
 CHECK(trackDistance > 0 AND trackDistance IS NOT NULL);
 
 
 ALTER TABLE Horses
 ADD CONSTRAINT notBothOwnerTrainer
-CHECK(trainerID <> horseOwnerID)
+CHECK(trainerID <> horseOwnerID);
 
 
 ALTER TABLE Races
