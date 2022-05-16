@@ -4,8 +4,8 @@
 
 ALTER TABLE Racetracks
 ADD CONSTRAINT positiveTrackDistance
-CHECK(trackDistance > 0 AND trackDistance IS NOT NULL);
---CHECK(trackDistance > 0);
+--CHECK(trackDistance > 0 AND trackDistance IS NOT NULL);
+CHECK(trackDistance > 0);
 
 ALTER TABLE Horses
 ADD CONSTRAINT notBothOwnerTrainer
