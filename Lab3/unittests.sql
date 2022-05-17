@@ -29,12 +29,12 @@ WHERE (trackDistance < 0);
 -- meets constraint for notBothOwnerTrainer
 UPDATE Horses
 SET trainerID = trainerID
-WHERE (trainerID = horseOwnerID);
+WHERE (trainerID != horseOwnerID);
 
 -- violates constraint for notBothOwner Trainer
 UPDATE Horses
-SET trainerID = 1;
-WHERE (trainerID != horseOwnerID);
+SET trainerID = horseOwnerID;
+WHERE (trainerID = 6011);
 
 
 
