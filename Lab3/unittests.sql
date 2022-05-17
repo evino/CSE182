@@ -28,24 +28,24 @@ WHERE (trackDistance < 0);
 
 -- meets constraint for notBothOwnerTrainer
 UPDATE Horses
-SET trainerID = trainerID
-WHERE (trainerID != horseOwnerID);
+SET trainerID = 6008
+WHERE (horseOwnerID = 6007);
 
 -- violates constraint for notBothOwner Trainer
 UPDATE Horses
-SET trainerID = horseOwnerID;
+SET trainerID = horseOwnerID
 WHERE (trainerID = 6011);
 
 
 
 -- meets constraint for bigChristmasPrize Constraint
 UPDATE Races
-SET winningPrize = winningPrize, raceDate = raceDate
-WHERE (winningPrize > 1200 and raceDate = DATE '2021-12-25');
+SET winningPrize = winningPrize, raceDate = DATE '2021-12-25'
+WHERE (winningPrize > 1200);
 
 --violates constraint for bigChristmasPrize constraint
 UPDATE Races
-SET winningPrize = 100, raceDate = DATE '2022-1-10';
-WHERE (winningPrize <= 1200 AND raceDate != DATE '2021-12-25');
+SET winningPrize = 100, raceDate = DATE '2022-1-10'
+WHERE (winningPrize <= 1200);
 
 
