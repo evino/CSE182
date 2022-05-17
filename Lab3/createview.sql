@@ -7,4 +7,5 @@ CREATE VIEW LastPlaceHorsesView AS
 	SELECT DISTINCT horseID, racetrackID, raceDate, raceNum, finishPosition
 	FROM HorseRaceResults
 	WHERE finishPosition >= (SELECT MAX(res.finishPosition)
-							FROM HorseRaceResults res);
+							FROM HorseRaceResults res
+                            WHERE racetrackID = res.racetrackID, raceDate = res.raceDate, raceNum = res.raceNum, finishPosition = res.finishPosition);
