@@ -4,8 +4,11 @@
 -- creatview.sql
 
 CREATE VIEW LastPlaceHorsesView AS
-	SELECT DISTINCT horseID, racetrackID, raceDate, raceNum, finishPosition
-	FROM HorseRaceResults
-	WHERE finishPosition >= (SELECT MAX(res.finishPosition)
+	SELECT DISTINCT hrr.horseID, hrr.racetrackID, hrr.raceDate, hrr.raceNum, hrr.finishPosition
+	FROM HorseRaceResults hrr
+	WHERE hrr.finishPosition >= (SELECT MAX(res.finishPosition)
 							FROM HorseRaceResults res
-                            WHERE racetrackID = res.racetrackID, raceDate = res.raceDate, raceNum = res.raceNum, finishPosition = res.finishPosition);
+                            WHERE hrr.racetrackID = res.racetrackID,
+                            hrr.raceDate = res.raceDate,
+                            hrr.raceNum = res.raceNum,
+                            hrr.finishPosition = res.finishPosition);
