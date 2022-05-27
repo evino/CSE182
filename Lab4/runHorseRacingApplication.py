@@ -33,7 +33,7 @@ def winCountForHorse (myConn, theHorseID):
     # You'll need to figure out value to return.
     try:
         myCursor = myConn.cursor()
-        sql = "SELECT COUNT(finishPosition FROM HorseRaceResults WHERE finishPosition = 1 AND horseId = %s)"
+        sql = "SELECT COUNT(finishPosition) FROM HorseRaceResults WHERE finishPosition = 1 AND horseId = %s GROUP BY finishPosition"
         myCursor.execute(sql, (theHorseID, theRacetrackID, theRaceDate, theRaceNum ))
     except:
         print("Call of winCountForHorse on", theHorseID, "had error", file=sys.stderr)
