@@ -33,7 +33,7 @@ def winCountForHorse (myConn, theHorseID):
     # You'll need to figure out value to return.
     try:
         myCursor = myConn.cursor()
-        sql = "SELECT COUNT(finishPosition FROM HorseRaceResults WHERE finishPosition = 1 AND %s = horseID)"
+        sql = "SELECT COUNT(finishPosition FROM HorseRaceResults WHERE finishPosition = 1 AND horseId = %s)"
         myCursor.execute(sql, (theHorseID, theRacetrackID, theRaceDate, theRaceNum ))
     except:
         print("Call of winCountForHorse on", theHorseID, "had error", file=sys.stderr)
@@ -62,10 +62,13 @@ def winCountForHorse (myConn, theHorseID):
 # the same address).  updateRacetrackAddress should return the number of racetracks whose address
 # was updated.
 
-#def updateRacetrackAddress (myConn, oldAddress, newAddress ):
+def updateRacetrackAddress (myConn, oldAddress, newAddress ):
     
     # Python function to be supplied by students
     # You'll need to figure out value to return.
+    try:
+        myCursor = myConn.cursor()
+        sql = ""
 
 # end updateRacetrackAddress
 
@@ -90,7 +93,7 @@ def winCountForHorse (myConn, theHorseID):
 # disqualifyHorseInRaceFunction, which does all of the work for this part of the assignment;
 # disqualifyHorseInRace should not do any of the work itself.
 
-#def disqualifyHorseInRace (myConn, theHorseID, theRacetrackID, theRaceDate, theRaceNum):
+def disqualifyHorseInRace (myConn, theHorseID, theRacetrackID, theRaceDate, theRaceNum):
 
 # We're gving you the code for disqualifyHorseInRace, but you'll have to write
 # the Stored Function disqualifyHorseInRaceFunction yourselves in a PL/pgSQL file named
