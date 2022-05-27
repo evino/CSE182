@@ -34,7 +34,7 @@ def winCountForHorse (myConn, theHorseID):
     try:
         myCursor = myConn.cursor()
         sql = "SELECT COUNT(finishPosition) FROM HorseRaceResults WHERE finishPosition = 1 AND horseId = %s GROUP BY finishPosition"
-        myCursor.execute(sql, (theHorseID, theRacetrackID, theRaceDate, theRaceNum ))
+        myCursor.execute(sql, (theHorseID))
     except:
         print("Call of winCountForHorse on", theHorseID, "had error", file=sys.stderr)
         myCursor.close()
@@ -68,7 +68,18 @@ def updateRacetrackAddress (myConn, oldAddress, newAddress ):
     # You'll need to figure out value to return.
     try:
         myCursor = myConn.cursor()
-        sql = ""
+        sql = "UPDATE Racetracks SET address = %s WHERE address = %s"
+        myCursor.execute(sql, (newAddress, oldAddress))
+    except:
+        print("Call of updateRacetrackAddress on", oldAddress, ",", newAddress, "had error", file=sys.stderr)
+        myCursor.close()
+        myConn.close()
+        sys.exit(-1)
+
+    row = myCursor.fetchone()
+    myCursor.rowcount()
+    myCursor.close()
+    return(row)
 
 # end updateRacetrackAddress
 
