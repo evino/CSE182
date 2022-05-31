@@ -33,8 +33,8 @@ def winCountForHorse (myConn, theHorseID):
     # You'll need to figure out value to return.
     try:
         myCursor = myConn.cursor()
-        sql = "SELECT COUNT(finishPosition) FROM HorseRaceResults WHERE finishPosition = 1 AND horseId = %s GROUP BY finishPosition"
-        myCursor.execute(sql, (theHorseID))
+        sql = "SELECT COUNT(finishPosition) FROM HorseRaceResults WHERE finishPosition = 1 AND horseId = %s"
+        myCursor.execute(sql, (theHorseID,))
     except:
         print("Call of winCountForHorse on", theHorseID, "had error", file=sys.stderr)
         myCursor.close()
@@ -76,8 +76,7 @@ def updateRacetrackAddress (myConn, oldAddress, newAddress):
         myConn.close()
         sys.exit(-1)
 
-    row = myCursor.fetchone()
-    myCursor.rowcount()
+    row = myCursor.rowcount
     myCursor.close()
     return(row)
 
@@ -154,25 +153,28 @@ def main():
     # Print their outputs from here, not in winCountForHorses.
     # You may use a Python method to help you do the printing.
 
-    horseID1 = 526
-    horseID2 = 555
+    horseID1 = "526"  # first horseID to test
+    horseID2 = "555"  # second horseID to test
     
-    winCount1 = winCountForHorse(myConn, horseID1)
-    winCount2 = winCountForHorse(myConn, horseID2)
+    winCount1 = winCountForHorse(myConn, horseID1)  # number of wins for first test case
+    winCount2 = winCountForHorse(myConn, horseID2)  # number of winds for seconde test case
 
     print("Horse", horseID1, "won", winCount1, "races\n")
+    print("Horse", horseID2, "won", winCount2, "races\n")
 
-    # Perform the calls to updateRacetrackAddress  described in Section 6 of Lab4.
     # Print their outputs from here, not in updateRacetrackAddress.
     # You may use a Python method to help you do the printing.
 
-    oldAddress1 = "Kellogg Rd 6301, Cincinnati, OH 45230"
-    newAddress1 = "6301 Kellogg Road, Cincinnati, OH 45230"
-    updateTrackAddress_Test1 = updateRacetrackAddress(myConn, oldAddress1, newAddress1)
+    #  Test Case 1
+    oldAddress1 = "Kellogg Rd 6301, Cincinnati, OH 45230"  # old address for test case 1
+    newAddress1 = "6301 Kellogg Road, Cincinnati, OH 45230"  # new address for test case 1
+    updateTrackAddress_Test1 = updateRacetrackAddress(myConn, oldAddress1, newAddress1)  # number of track addresses changed with test case 1
 
-    oldAddress2 = "Elmont, NY 11003"
-    newAddress2 = "Belmont Park, NY 11003"
-    updateTrackAddress_Test2 = updateRacetrackAddress(myConn, oldAddress2, newAddress2)
+    
+    #  Test Case 2
+    oldAddress2 = "Elmont, NY 11003"  # old address for test case 2
+    newAddress2 = "Belmont Park, NY 11003"  # new address for test case 2
+    updateTrackAddress_Test2 = updateRacetrackAddress(myConn, oldAddress2, newAddress2)  # number of track addresses changed with test case 2
 
 
     print("Number of racetracks with whose address was changed from", oldAddress1, "to", newAddress1, "is", updateTrackAddress_Test1, "\n")
