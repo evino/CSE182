@@ -62,7 +62,7 @@ def winCountForHorse (myConn, theHorseID):
 # the same address).  updateRacetrackAddress should return the number of racetracks whose address
 # was updated.
 
-def updateRacetrackAddress (myConn, oldAddress, newAddress ):
+def updateRacetrackAddress (myConn, oldAddress, newAddress):
     
     # Python function to be supplied by students
     # You'll need to figure out value to return.
@@ -154,12 +154,30 @@ def main():
     # Print their outputs from here, not in winCountForHorses.
     # You may use a Python method to help you do the printing.
 
+    horseID1 = 526
+    horseID2 = 555
+    
+    winCount1 = winCountForHorse(myConn, horseID1)
+    winCount2 = winCountForHorse(myConn, horseID2)
+
+    print("Horse", horseID1, "won", winCount1, "races\n")
 
     # Perform the calls to updateRacetrackAddress  described in Section 6 of Lab4.
     # Print their outputs from here, not in updateRacetrackAddress.
     # You may use a Python method to help you do the printing.
- 
- 
+
+    oldAddress1 = "Kellogg Rd 6301, Cincinnati, OH 45230"
+    newAddress1 = "6301 Kellogg Road, Cincinnati, OH 45230"
+    updateTrackAddress_Test1 = updateRacetrackAddress(myConn, oldAddress1, newAddress1)
+
+    oldAddress2 = "Elmont, NY 11003"
+    newAddress2 = "Belmont Park, NY 11003"
+    updateTrackAddress_Test2 = updateRacetrackAddress(myConn, oldAddress2, newAddress2)
+
+
+    print("Number of racetracks with whose address was changed from", oldAddress1, "to", newAddress1, "is", updateTrackAddress_Test1, "\n")
+    print("Number of racetracks with whose address was changed from", oldAddress2, "to", newAddress2, "is", updateTrackAddress_Test2, "\n")
+
     # Perform the calls to disqualifyHorseInRace described in Section 6 of Lab4,
     # Print their outputs from here, not in disqualifyHorseInRace.
     # You may use a Python method to help you do the printing.
