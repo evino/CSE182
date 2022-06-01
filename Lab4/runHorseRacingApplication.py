@@ -149,9 +149,13 @@ def main():
     
     # There are other correct ways of writing all of these calls correctly in Python.
         
+    
     # Perform the calls to winCountForHorse  described in Section 6 of Lab4.
     # Print their outputs from here, not in winCountForHorses.
     # You may use a Python method to help you do the printing.
+    
+    # winCountForHorse tests
+    print("winCountForHorse() Test:")
 
     horseID1 = "526"  # first horseID for test case 1
     winCount1 = winCountForHorse(myConn, horseID1)  # number of wins for first test case
@@ -162,9 +166,14 @@ def main():
     winCount2 = winCountForHorse(myConn, horseID2)  # number of winds for seconde test case
     print("Horse", horseID2, "won", winCount2, "races\n")
 
+
+
     # Print their outputs from here, not in updateRacetrackAddress.
     # You may use a Python method to help you do the printing.
+    
+    # updateRaceTrackAddress() tests
 
+    print("updateRaceTrackAddress() Tests:")
     #  Test Case 1
     oldAddress1 = "Kellogg Rd 6301, Cincinnati, OH 45230"  # old address for test case 1
     newAddress1 = "6301 Kellogg Road, Cincinnati, OH 45230"  # new address for test case 1
@@ -185,7 +194,10 @@ def main():
     # You may use a Python method to help you do the printing.
     #
     # Reminder:  As the Lab4 pdf tells you:
+    
 
+    # stored function tests:
+    
     # stored test variables (Excluding horseID)
     stored_racetrackID = 3008
     stored_raceDate = datetime.date(2021, 8,11)
@@ -202,6 +214,8 @@ def main():
     disqualifyNum1 = disqualifyHorseInRace(myConn, stored_horseID1, stored_racetrackID, stored_raceDate, stored_raceNum)
 
     print("\n\n")
+    print("disqualifyHorseInRace()/stored function Tests:")
+
     if (disqualifyNum1 == -2): # For when finPosition of horse is NULL
         print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
         # parameters of disqualifyHorseInRace
