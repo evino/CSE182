@@ -255,7 +255,7 @@ def main():
         print("raceDate:", stored_raceDate)
         print("raceNum:", stored_raceNum)
         print("\n")
-    else:   # parameters of disqualifyHorseInRace, and number of finishPosition improvements
+    else:   # parameters of disqualifyHorseInRace, and number of finishPosition improvements 
         print("Number of improvements:", disqualifyNum3, ", horseID:", stored_horseID3, ", racetrackID:", stored_racetrackID, ", raceDate:", stored_raceDate, ", raceNum:", stored_raceNum, "\n")
 
 
