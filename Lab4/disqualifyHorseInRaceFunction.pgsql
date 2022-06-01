@@ -13,7 +13,7 @@ RETURNS INTEGER AS $$
 	WHERE horseID = theHorseID
 	AND racetrackID = theRacetrackID
 	AND raceDate = theRaceDate
-	raceNum = theRaceNum;
+	AND raceNum = theRaceNum;
 
 	GET DIAGNOSTICS numDisqualified = ROW_COUNT;
 
@@ -45,7 +45,7 @@ RETURNS INTEGER AS $$
 	WHERE horseID = theHorseID
 	AND racetrackID = theRacetrackID
 	AND raceDate = theRaceDate
-	AND raceNum = theRaceNum;
+	AND raceNum = theRaceNum
 	AND finish_position < finishPosition;
 
 	GET DIAGNOSTICS numImproved = ROW_COUNT;
