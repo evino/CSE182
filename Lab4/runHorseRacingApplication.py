@@ -33,15 +33,15 @@ def winCountForHorse (myConn, theHorseID):
     # You'll need to figure out value to return.
     try:
         myCursor = myConn.cursor()
-        sql = "SELECT COUNT(finishPosition) FROM HorseRaceResults WHERE finishPosition = 1 AND horseId = %s"
-        myCursor.execute(sql, (theHorseID,))
+        sql = "SELECT COUNT(finishPosition) FROM HorseRaceResults WHERE finishPosition = 1 AND horseId = %s" # count num of tuples from HRR where finPos is 1,
+        myCursor.execute(sql, (theHorseID,))                                                                 # and the horseID is equal to theHorseID argument.
     except:
-        print("Call of winCountForHorse on", theHorseID, "had error", file=sys.stderr)
+        print("Call of winCountForHorse on", theHorseID, "had error", file=sys.stderr) # Error message
         myCursor.close()
         myConn.close()
         sys.exit(-1)
 
-    row = myCursor.fetchone()
+    row = myCursor.fetchone() # get next row
     myCursor.close()
     return(row[0])
 
@@ -68,15 +68,15 @@ def updateRacetrackAddress (myConn, oldAddress, newAddress):
     # You'll need to figure out value to return.
     try:
         myCursor = myConn.cursor()
-        sql = "UPDATE Racetracks SET address = %s WHERE address = %s"
-        myCursor.execute(sql, (newAddress, oldAddress))
+        sql = "UPDATE Racetracks SET address = %s WHERE address = %s" # Update RT so address oldAddress becomes newAddress, only if oldAddress arguement matches address in RT table.
+        myCursor.execute(sql, (newAddress, oldAddress)) # Tells the compiler to execute in following order for arguments.
     except:
         print("Call of updateRacetrackAddress on", oldAddress, ",", newAddress, "had error", file=sys.stderr)
         myCursor.close()
         myConn.close()
         sys.exit(-1)
 
-    row = myCursor.rowcount
+    row = myCursor.rowcount # Get row count
     myCursor.close()
     return(row)
 
@@ -153,13 +153,13 @@ def main():
     # Print their outputs from here, not in winCountForHorses.
     # You may use a Python method to help you do the printing.
 
-    horseID1 = "526"  # first horseID to test
-    horseID2 = "555"  # second horseID to test
-    
+    horseID1 = "526"  # first horseID for test case 1
     winCount1 = winCountForHorse(myConn, horseID1)  # number of wins for first test case
-    winCount2 = winCountForHorse(myConn, horseID2)  # number of winds for seconde test case
-
     print("Horse", horseID1, "won", winCount1, "races\n")
+
+    
+    horseID2 = "555"  # second horseID for test case 2
+    winCount2 = winCountForHorse(myConn, horseID2)  # number of winds for seconde test case
     print("Horse", horseID2, "won", winCount2, "races\n")
 
     # Print their outputs from here, not in updateRacetrackAddress.
@@ -169,15 +169,13 @@ def main():
     oldAddress1 = "Kellogg Rd 6301, Cincinnati, OH 45230"  # old address for test case 1
     newAddress1 = "6301 Kellogg Road, Cincinnati, OH 45230"  # new address for test case 1
     updateTrackAddress_Test1 = updateRacetrackAddress(myConn, oldAddress1, newAddress1)  # number of track addresses changed with test case 1
+    print("Number of racetracks with whose address was changed from", oldAddress1, "to", newAddress1, "is", updateTrackAddress_Test1, "\n")
 
     
     #  Test Case 2
     oldAddress2 = "Elmont, NY 11003"  # old address for test case 2
     newAddress2 = "Belmont Park, NY 11003"  # new address for test case 2
     updateTrackAddress_Test2 = updateRacetrackAddress(myConn, oldAddress2, newAddress2)  # number of track addresses changed with test case 2
-
-
-    print("Number of racetracks with whose address was changed from", oldAddress1, "to", newAddress1, "is", updateTrackAddress_Test1, "\n")
     print("Number of racetracks with whose address was changed from", oldAddress2, "to", newAddress2, "is", updateTrackAddress_Test2, "\n")
 
 
@@ -200,57 +198,64 @@ def main():
 
     
 
+    # Test case 1 for disqualifyHorseInRace()
     disqualifyNum1 = disqualifyHorseInRace(myConn, stored_horseID1, stored_racetrackID, stored_raceDate, stored_raceNum)
 
     print("\n\n")
-
-    if (disqualifyNum1 == -2):
+    if (disqualifyNum1 == -2): # For when finPosition of horse is NULL
         print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
+        # parameters of disqualifyHorseInRace
         print("horseID:", stored_horseID1, "; racetrackID:", stored_racetrackID,  ",; raceDate:", stored_raceDate, "; raceNum:", stored_raceNum, "\n")
-    elif (disqualifyNum1 == -1):
+    elif (disqualifyNum1 == -1): # For when no tuple for that horse in that race
         print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table. -1 was returned")
+        # parameters of disqualifyHorseInRace
         print("horseID:", stored_horseID1)
         print("racetrackID:", stored_racetrackID)
         print("raceDate:", stored_raceDate)
         print("raceNum:", stored_raceNum)
         print("\n")
-    else:
+    else:   # parameters of disqualifyHorseInRace, and number of finishPosition improvements
         print("Number of improvements:", disqualifyNum1, ", horseID:", stored_horseID1, ", racetrackID:", stored_racetrackID, ", raceDate:", stored_raceDate, ", raceNum:", stored_raceNum, "\n")
 
     
 
+
+    # Test case 2 for disqualifyHorseInRace() 
     disqualifyNum2 = disqualifyHorseInRace(myConn, stored_horseID2, stored_racetrackID, stored_raceDate, stored_raceNum)
 
-    if (disqualifyNum2 == -2):
+    if (disqualifyNum2 == -2): # For when finPosition of horse is NULL
         print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
+        # parameters of disqualifyHorseInRace
         print("horseID:", stored_horseID2, "; racetrackID:", stored_racetrackID,  ",; raceDate:", stored_raceDate, "; raceNum:", stored_raceNum, "\n")
-    elif (disqualifyNum2 == -1):
+    elif (disqualifyNum2 == -1): # For when no tuple for that horse in that race
         print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table. -1 was returned")
+        # parameters of disqualifyHorseInRace
         print("horseID:", stored_horseID2)
         print("racetrackID:", stored_racetrackID)
         print("raceDate:", stored_raceDate)
         print("raceNum:", stored_raceNum)
         print("\n")
-    else:
+    else:   # parameters of disqualifyHorseInRace, and number of finishPosition improvements
         print("Number of improvements:", disqualifyNum2, ", horseID:", stored_horseID2, ", racetrackID:", stored_racetrackID, ", raceDate:", stored_raceDate, ", raceNum:", stored_raceNum, "\n")
 
 
 
 
-
+    # Test case 3 for disqualifyHorseInRace() 
     disqualifyNum3 = disqualifyHorseInRace(myConn, stored_horseID3, stored_racetrackID, stored_raceDate, stored_raceNum)
 
-    if (disqualifyNum3 == -2):
+    if (disqualifyNum3 == -2): # For when finPosition of horse is NULL
         print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
         print("horseID:", stored_horseID3, "; racetrackID:", stored_racetrackID,  ",; raceDate:", stored_raceDate, "; raceNum:", stored_raceNum, "\n")
-    elif (disqualifyNum3 == -1):
+    elif (disqualifyNum3 == -1): # For when no tuple for that horse in that race
         print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table. -1 was returned")
+        # parameters of disqualifyHorseInRace
         print("horseID:", stored_horseID3)
         print("racetrackID:", stored_racetrackID)
         print("raceDate:", stored_raceDate)
         print("raceNum:", stored_raceNum)
         print("\n")
-    else:
+    else:   # parameters of disqualifyHorseInRace, and number of finishPosition improvements
         print("Number of improvements:", disqualifyNum3, ", horseID:", stored_horseID3, ", racetrackID:", stored_racetrackID, ", raceDate:", stored_raceDate, ", raceNum:", stored_raceNum, "\n")
 
 
