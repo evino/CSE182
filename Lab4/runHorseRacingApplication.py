@@ -204,13 +204,13 @@ def main():
 
     if (disqualifyNum1 == -2):
         print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
-        print("horseID:", stored_horseID1 + ", racetrackID:", stored_racetrackID + ", raceDate:", stored_raceDate + ", raceNum:", stored_raceNum, "\n")
+        print("horseID:", stored_horseID1, "; racetrackID:", stored_racetrackID,  ",; raceDate:", stored_raceDate, "; raceNum:", stored_raceNum, "\n")
     elif (disqualifyNum1 == -1):
         print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table. -1 was returned")
         print("horseID:", stored_horseID1)
-        print(", racetrackID:", stored_racetrackID)
-        print(", raceDate:", stored_raceDate)
-        print(", raceNum:", stored_raceNum)
+        print("racetrackID:", stored_racetrackID)
+        print("raceDate:", stored_raceDate)
+        print("raceNum:", stored_raceNum)
         print("\n")
     else:
         print("Number of improvements:", disqualifyNum1, ", horseID:", stored_horseID1, ", racetrackID:", stored_racetrackID, ", raceDate:", stored_raceDate, ", raceNum:", stored_raceNum, "\n")
@@ -221,21 +221,21 @@ def main():
 
     if (disqualifyNum2 == -2):
         print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
-        print("\nhorseID:", stored_horseID2)
-        print("\nracetrackID:", stored_racetrackID)
-        print("\nraceDate:", stored_raceDate)
-        print("\nraceNum:", stored_raceNum)
+        print("horseID:", stored_horseID2)
+        print("racetrackID:", stored_racetrackID)
+        print("raceDate:", stored_raceDate)
+        print("raceNum:", stored_raceNum)
     elif (disqualifyNum2 == -1):
         print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table")
-        print("\nhorseID:", stored_horseID2)
-        print("\nracetrackID:", stored_racetrackID)
-        print("\nraceDate:", stored_raceDate)
-        print("\nraceNum:", stored_raceNum)
+        print("horseID:", stored_horseID2)
+        print("racetrackID:", stored_racetrackID)
+        print("raceDate:", stored_raceDate)
+        print("raceNum:", stored_raceNum)
     else:
-        print("\nhorseID:", stored_horseID2)
-        print("\nracetrackID:", stored_racetrackID)
-        print("\nraceDate:", stored_raceDate)
-        print("\nraceNum:", stored_raceNum)
+        print("horseID:", stored_horseID2)
+        print("racetrackID:", stored_racetrackID)
+        print("raceDate:", stored_raceDate)
+        print("raceNum:", stored_raceNum)
 
 
 
@@ -244,21 +244,21 @@ def main():
 
     if (disqualifyNum3 == -2):
         print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
-        print("\nhorseID:", stored_horseID3)
-        print("\nracetrackID:", stored_racetrackID)
-        print("\nraceDate:", stored_raceDate)
-        print("\nraceNum:", stored_raceNum)
+        print("horseID:", stored_horseID3)
+        print("racetrackID:", stored_racetrackID)
+        print("raceDate:", stored_raceDate)
+        print("raceNum:", stored_raceNum)
     elif (disqualifyNum3 == -1):
         print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table")
-        print("\nhorseID:", stored_horseID3)
-        print("\nracetrackID:", stored_racetrackID)
-        print("\nraceDate:", stored_raceDate)
-        print("\nraceNum:", stored_raceNum)
+        print("horseID:", stored_horseID3)
+        print("racetrackID:", stored_racetrackID)
+        print("raceDate:", stored_raceDate)
+        print("raceNum:", stored_raceNum)
     else:
-        print("\nhorseID:", stored_horseID3)
-        print("\nracetrackID:", stored_racetrackID)
-        print("\nraceDate:", stored_raceDate)
-        print("\nraceNum:", stored_raceNum)
+        print("horseID:", stored_horseID3)
+        print("racetrackID:", stored_racetrackID)
+        print("raceDate:", stored_raceDate)
+        print("raceNum:", stored_raceNum)
 
     #
     # Note:  Since we’ve included the datetime() class in the Python skeleton for
