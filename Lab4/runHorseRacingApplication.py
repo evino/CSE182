@@ -187,6 +187,85 @@ def main():
     # You may use a Python method to help you do the printing.
     #
     # Reminder:  As the Lab4 pdf tells you:
+
+    # stored test variables (Excluding horseID)
+    stored_racetrackID = 3008
+    stored_raceDate = datetime.date(2021, 8,11)
+    stored_raceNum = 1
+
+    #horseID for different test cases (Num at end of stored_horseIDx refers to test case)
+    stored_horseID1 = 552
+    stored_horseID2 = 553
+    stored_horseID1 = 575
+
+    
+
+    disqualifyNum1 = disqualifyHorseInRace(stored_horseID1, stored_racetrackID, stored_raceDate, stored_raceNum)
+
+    if (disqualifyNum1 == -2):
+        print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
+        print("\nhorseID:", stored_horseID1)
+        print("\nracetrackID:", stored_racetrackID)
+        print("\nraceDate:", stored_raceDate)
+        print("\nraceNum:", stored_raceNum)
+    elif (disqualifyNum1 == -1):
+        print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table")
+        print("\nhorseID:", stored_horseID1)
+        print("\nracetrackID:", stored_racetrackID)
+        print("\nraceDate:", stored_raceDate)
+        print("\nraceNum:", stored_raceNum)
+    else
+        print("\nhorseID:", stored_horseID1)
+        print("\nracetrackID:", stored_racetrackID)
+        print("\nraceDate:", stored_raceDate)
+        print("\nraceNum:", stored_raceNum)
+
+
+    
+
+    disqualifyNum2 = disqualifyHorseInRace(stored_horseID2, stored_racetrackID, stored_raceDate, stored_raceNum)
+
+    if (disqualifyNum2 == -2):
+        print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
+        print("\nhorseID:", stored_horseID2)
+        print("\nracetrackID:", stored_racetrackID)
+        print("\nraceDate:", stored_raceDate)
+        print("\nraceNum:", stored_raceNum)
+    elif (disqualifyNum2 == -1):
+        print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table")
+        print("\nhorseID:", stored_horseID2)
+        print("\nracetrackID:", stored_racetrackID)
+        print("\nraceDate:", stored_raceDate)
+        print("\nraceNum:", stored_raceNum)
+    else
+        print("\nhorseID:", stored_horseID2)
+        print("\nracetrackID:", stored_racetrackID)
+        print("\nraceDate:", stored_raceDate)
+        print("\nraceNum:", stored_raceNum)
+
+
+
+
+    disqualifyNum3 = disqualifyHorseInRace(stored_horseID3, stored_racetrackID, stored_raceDate, stored_raceNum)
+
+    if (disqualifyNum3 == -2):
+        print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
+        print("\nhorseID:", stored_horseID3)
+        print("\nracetrackID:", stored_racetrackID)
+        print("\nraceDate:", stored_raceDate)
+        print("\nraceNum:", stored_raceNum)
+    elif (disqualifyNum3 == -1):
+        print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table")
+        print("\nhorseID:", stored_horseID3)
+        print("\nracetrackID:", stored_racetrackID)
+        print("\nraceDate:", stored_raceDate)
+        print("\nraceNum:", stored_raceNum)
+    else
+        print("\nhorseID:", stored_horseID3)
+        print("\nracetrackID:", stored_racetrackID)
+        print("\nraceDate:", stored_raceDate)
+        print("\nraceNum:", stored_raceNum)
+
     #
     # Note:  Since we’ve included the datetime() class in the Python skeleton for
     # runHorseRacingApplication.py, writing datetime.date(2021, 8, 11) giving you a Python
