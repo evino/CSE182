@@ -196,34 +196,28 @@ def main():
     #horseID for different test cases (Num at end of stored_horseIDx refers to test case)
     stored_horseID1 = 552
     stored_horseID2 = 553
-    stored_horseID1 = 575
+    stored_horseID3 = 575
 
     
 
-    disqualifyNum1 = disqualifyHorseInRace(stored_horseID1, stored_racetrackID, stored_raceDate, stored_raceNum)
+    disqualifyNum1 = disqualifyHorseInRace(myConn, stored_horseID1, stored_racetrackID, stored_raceDate, stored_raceNum)
 
     if (disqualifyNum1 == -2):
         print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
-        print("\nhorseID:", stored_horseID1)
-        print("\nracetrackID:", stored_racetrackID)
-        print("\nraceDate:", stored_raceDate)
-        print("\nraceNum:", stored_raceNum)
+        print("horseID:", stored_horseID1 + ", racetrackID:", stored_racetrackID + ", raceDate:", stored_raceDate + ", raceNum:", stored_raceNum, "\n")
     elif (disqualifyNum1 == -1):
-        print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table")
-        print("\nhorseID:", stored_horseID1)
-        print("\nracetrackID:", stored_racetrackID)
-        print("\nraceDate:", stored_raceDate)
-        print("\nraceNum:", stored_raceNum)
-    else
-        print("\nhorseID:", stored_horseID1)
-        print("\nracetrackID:", stored_racetrackID)
-        print("\nraceDate:", stored_raceDate)
-        print("\nraceNum:", stored_raceNum)
-
+        print("Error encountered: Calling disqualifyHorseInRace() on horse's tuple that's not in HorseRaceResults table. -1 was returned")
+        print("horseID:", stored_horseID1)
+        print(", racetrackID:", stored_racetrackID)
+        print(", raceDate:", stored_raceDate)
+        print(", raceNum:", stored_raceNum)
+        print("\n")
+    else:
+        print("Number of improvements:", disqualifyNum1, ", horseID:", stored_horseID1, ", racetrackID:", stored_racetrackID, ", raceDate:", stored_raceDate, ", raceNum:", stored_raceNum, "\n")
 
     
 
-    disqualifyNum2 = disqualifyHorseInRace(stored_horseID2, stored_racetrackID, stored_raceDate, stored_raceNum)
+    disqualifyNum2 = disqualifyHorseInRace(myConn, stored_horseID2, stored_racetrackID, stored_raceDate, stored_raceNum)
 
     if (disqualifyNum2 == -2):
         print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
@@ -237,7 +231,7 @@ def main():
         print("\nracetrackID:", stored_racetrackID)
         print("\nraceDate:", stored_raceDate)
         print("\nraceNum:", stored_raceNum)
-    else
+    else:
         print("\nhorseID:", stored_horseID2)
         print("\nracetrackID:", stored_racetrackID)
         print("\nraceDate:", stored_raceDate)
@@ -246,7 +240,7 @@ def main():
 
 
 
-    disqualifyNum3 = disqualifyHorseInRace(stored_horseID3, stored_racetrackID, stored_raceDate, stored_raceNum)
+    disqualifyNum3 = disqualifyHorseInRace(myConn, stored_horseID3, stored_racetrackID, stored_raceDate, stored_raceNum)
 
     if (disqualifyNum3 == -2):
         print("Error encountered: Calling disqualifyHorseInRace() on horse with NULL finishPosition. -2 was returned")
@@ -260,7 +254,7 @@ def main():
         print("\nracetrackID:", stored_racetrackID)
         print("\nraceDate:", stored_raceDate)
         print("\nraceNum:", stored_raceNum)
-    else
+    else:
         print("\nhorseID:", stored_horseID3)
         print("\nracetrackID:", stored_racetrackID)
         print("\nraceDate:", stored_raceDate)
